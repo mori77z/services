@@ -61,7 +61,54 @@
   </iframe>
 </section>
 
-</main>
+</main><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const openerText = document.querySelector(".opener-text");
+
+  // Inhalt merken
+  const textContent = openerText.textContent;
+
+  // Nach 5s das H3 durch Details ersetzen
+  setTimeout(() => {
+    const details = document.createElement("details");
+    details.classList.add("opener");
+
+    const summary = document.createElement("summary");
+    summary.textContent = textContent;
+
+    const list = document.createElement("ul");
+    [
+      "Digital creative direction",
+      "Web and interaction design",
+      "Creative development",
+      "Industrial design",
+      "Prototyping"
+    ].forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    });
+
+    details.appendChild(summary);
+    details.appendChild(list);
+
+    openerText.replaceWith(details);
+
+    // Automatisches Öffnen nach Ersetzung
+    details.open = true;
+
+    // Nach 10s wieder schließen
+    setTimeout(() => {
+      details.open = false;
+    }, 10000);
+
+    // Nach weiteren 5s wieder zum Anfang (H3 zurück)
+    setTimeout(() => {
+      details.replaceWith(openerText);
+    }, 15000);
+  }, 5000);
+});
+</script>
 
     <script src="/assets/global.js"></script>
     <script src="/material/favicon.js"></script>
