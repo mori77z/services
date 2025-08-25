@@ -23,9 +23,43 @@
 <body>
 
 <main id="page-wrapper">
-<h3 class="opener-text">
-    Digital creative direction, web and interaction design, creative development, industrial design, prototyping.
-</h3>
+<p class="opener-text">
+  <details class="inline-opener"><summary>Digital creative direction</summary>
+    <ul>
+      <li>Adobe Creative Suite</li>
+      <li>Figma</li>
+      <li>Miro</li>
+    </ul>
+  </details>, 
+  <details class="inline-opener"><summary>web and interaction design</summary>
+    <ul>
+      <li>Figma</li>
+      <li>Webflow</li>
+      <li>Framer</li>
+    </ul>
+  </details>, 
+  <details class="inline-opener"><summary>creative development</summary>
+    <ul>
+      <li>JavaScript</li>
+      <li>Three.js</li>
+      <li>p5.js</li>
+    </ul>
+  </details>, 
+  <details class="inline-opener"><summary>industrial design</summary>
+    <ul>
+      <li>Rhino 3D</li>
+      <li>Keyshot</li>
+      <li>Fusion 360</li>
+    </ul>
+  </details>, 
+  <details class="inline-opener"><summary>prototyping</summary>
+    <ul>
+      <li>Arduino</li>
+      <li>Raspberry Pi</li>
+      <li>Processing</li>
+    </ul>
+  </details>.
+</p>
 <button class="expand-section-toggle">Clients</button>
 <section class="expand-section" id="clients">
     <p><a href="https://seit-hanau.de" target="_blank">Seit Hanau Landing Page</a></p>
@@ -61,55 +95,7 @@
   </iframe>
 </section>
 
-</main><script>
-document.addEventListener("DOMContentLoaded", () => {
-  const openerText = document.querySelector(".opener-text");
-
-  // Inhalt merken
-  const textContent = openerText.textContent;
-
-  // Nach 5s das H3 durch Details ersetzen
-  setTimeout(() => {
-    const details = document.createElement("details");
-    details.classList.add("opener");
-
-    const summary = document.createElement("summary");
-    summary.textContent = textContent;
-
-    const list = document.createElement("ul");
-    [
-      "Digital creative direction",
-      "Web and interaction design",
-      "Creative development",
-      "Industrial design",
-      "Prototyping"
-    ].forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      list.appendChild(li);
-    });
-
-    details.appendChild(summary);
-    details.appendChild(list);
-
-    openerText.replaceWith(details);
-
-    // Automatisches Öffnen nach Ersetzung
-    details.open = true;
-
-    // Nach 10s wieder schließen
-    setTimeout(() => {
-      details.open = false;
-    }, 10000);
-
-    // Nach weiteren 5s wieder zum Anfang (H3 zurück)
-    setTimeout(() => {
-      details.replaceWith(openerText);
-    }, 15000);
-  }, 5000);
-});
-</script>
-
+</main>
     <script src="/assets/global.js"></script>
     <script src="/material/favicon.js"></script>
 
